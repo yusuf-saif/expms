@@ -13,11 +13,11 @@
           <span>Manage Category</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="add-category.php">
+          <a class="dropdown-item" href="add-incomecategory.php">
             <i class="fa fa-list-alt"></i>
             Add Income Category</a>
              <!-- <a class="dropdown-item" href="view-category.php">View Category</a> -->
-          <a class="dropdown-item" href="add-category.php">
+          <a class="dropdown-item" href="add-expensecategory.php">
           <i class="fa fa-list-alt"></i>
           Add Expense Category</a>
 

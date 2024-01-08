@@ -7,19 +7,21 @@ if(empty($id))
 {
     header("Location: index.php"); 
 }
-if(isset($_REQUEST['sbt-cat']))
+if(isset($_REQUEST['sbt-expcat']))
 {
    
-	$category_name = $_POST['category_name'];
+	$expensecategory_name = $_POST['expensecategory_name'];
   $status = $_POST['status'];
 
-  $insert_category = mysqli_query($conn,"insert into tbl_category set category_name='$category_name', status='$status'");
+  $insert_expensecategory = 
+  mysqli_query($conn,"insert into tbl_expensecategory
+   set expensecategory_name='$expensecategory_name', status='$status'");
 
-    if($insert_category > 0)
+    if($insert_expensecategory > 0)
     {
         ?>
 <script type="text/javascript">
-    alert("Category added successfully.")
+    alert("Expense Category added successfully.")
 </script>
 <?php
 }
@@ -36,7 +38,10 @@ if(isset($_REQUEST['sbt-cat']))
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Add Category</a>
+            <a href="#">Add Expense Category</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="#">View Expense Category</a>
           </li>
           
         </ol>
@@ -46,13 +51,13 @@ if(isset($_REQUEST['sbt-cat']))
             <i class="fa fa-info-circle"></i>
             Submit Details</div>
              
-            <form method="post" class="form-valide">
+            <form method="post" class="form-validate">
           <div class="card-body">
                                       
                                   <div class="form-group row">
-                                      <label class="col-lg-4 col-form-label" for="remarks">Category Name <span class="text-danger">*</span></label>
+                                      <label class="col-lg-4 col-form-label" for="remarks">Expense Category Name <span class="text-danger">*</span></label>
                                        <div class="col-lg-6">
-                                      <input type="text" name="category_name" id="category_name" class="form-control" placeholder="Enter Category Name" required>
+                                      <input type="text" name="expensecategory_name" id="expensecategory_name" class="form-control" placeholder="Enter Expense Category Name" required>
                                        </div>
                                   </div>
                                   
@@ -73,7 +78,7 @@ if(isset($_REQUEST['sbt-cat']))
                            
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" name="sbt-cat" class="btn btn-primary">Submit</button>
+                                                  <button type="submit" name="sbt-expcat" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>
                                     
