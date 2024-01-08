@@ -3,27 +3,29 @@ session_start();
 include ('../connection.php');
 $name = $_SESSION['name'];
 $id = $_SESSION['id'];
-if(empty($id))
-{
-    header("Location: index.php"); 
+if (empty($id)) {
+    header("Location: index.php");
 }
 $id = $_GET['id'];
-$fetch_query = mysqli_query($conn, "select * from tbl_category where id='$id'");
+$fetch_query = mysqli_query($conn, "select * from tbl_incomecategory where id='$id'");
 $row = mysqli_fetch_array($fetch_query);
-if(isset($_REQUEST['sv-cat']))
+if(isset($_REQUEST['sv-inccat']))
 {
-   
-	$category_name = $_POST['category_name'];
-  $status = $_POST['status'];
 
-  $update_category = mysqli_query($conn,"update tbl_category set category_name='$category_name', status='$status' where id='$id'");
+    $incomecategory_name = $_POST['incomecategory'];
+    $status = $_POST['status'];
 
-    if($update_category > 0)
+  $update_incomecategory = 
+  mysqli_query($conn,"update tbl_incomecategory 
+  SET incomecategory_name='$incomecategory_name', 
+  status='$status' where id='$id'");
+
+    if($update_incomecategory > 0)
     {
         ?>
 <script type="text/javascript">
-    alert("Category Updated successfully.")
-    window.location.href='view-category.php';
+    alert("Income Category Updated successfully.")
+    window.location.href='view-incomecategory.php';
 </script>
 <?php
 }
@@ -40,23 +42,26 @@ if(isset($_REQUEST['sv-cat']))
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Edit Category</a>
+            <a href="#">Edit Income Category</a>
           </li>
-          
+          <li class="breadcrumb-item">
+            <a href="#">View Income Category</a>
+          </li>
+
         </ol>
 
   <div class="card mb-3">
           <div class="card-header">
             <i class="fa fa-info-circle"></i>
-            Edit Details</div>
+            Edit Income Category Details</div>
              
-            <form method="post" class="form-valide">
+            <form method="post" class="form-validate">
           <div class="card-body">
                                       
                                   <div class="form-group row">
-                                      <label class="col-lg-4 col-form-label" for="remarks">Category Name <span class="text-danger">*</span></label>
+                                      <label class="col-lg-4 col-form-label" for="remarks">Income Category Name <span class="text-danger">*</span></label>
                                        <div class="col-lg-6">
-                                      <input type="text" name="category_name" id="category_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['category_name']; ?>" required>
+                                      <input type="text" name="incomecategory_name" id="incomecategory_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['category_name']; ?>" required>
                                        </div>
                                   </div>
                                   
@@ -77,7 +82,7 @@ if(isset($_REQUEST['sv-cat']))
                            
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">
-                                                <button type="submit" name="sv-cat" class="btn btn-primary">Save</button>
+                                                <button type="submit" name="sv-inccat" class="btn btn-primary">Update Income Category</button>
                                             </div>
                                         </div>
                                     
