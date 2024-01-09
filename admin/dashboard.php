@@ -11,8 +11,11 @@ if(empty($id))
  $select_user = mysqli_query($conn,"select count(*) from tbl_users where role=2");
  $total_user = mysqli_fetch_row($select_user);
 
- $select_category = mysqli_query($conn,"select count(*) from tbl_category where status=1");
- $total_category = mysqli_fetch_row($select_category);
+ $select_incomecategory = mysqli_query($conn,"select count(*) from tbl_incomecategory where status=1");
+ $total_incomecategory = mysqli_fetch_row($select_incomecategory);
+
+ $select_expensecategory = mysqli_query($conn, "SELECT COUNT(*) FROM tbl_expensecategory WHERE STATUS=1");
+ $total_expensecategory = mysqli_fetch_row($select_expensecategory);
 
 ?>
 <?php include('include/header.php'); ?>
@@ -33,7 +36,7 @@ if(empty($id))
           
         </ol>
 <div class="row">
-  <div class="col-sm-4">
+  <div class="ms-4 col-sm">
     <section class="panel panel-featured-left panel-featured-primary">
       <div class="panel-body">
         <div class="widget-summary">
@@ -58,7 +61,7 @@ if(empty($id))
       </div>
     </section>
   </div>
-  <div class="col-sm-4">
+  <div class="col-sm-auto">
     <section class="panel panel-featured-left panel-featured-primary">
       <div class="panel-body">
         <div class="widget-summary">
@@ -69,12 +72,38 @@ if(empty($id))
           </div>
           <div class="widget-summary-col">
             <div class="summary">
-              <h4 class="title">Total Category</h4>
+              <h4 class="title">Total Income Category</h4>
               <div class="info">
-                <strong class="amount"><?php echo $total_category[0]; ?></strong><br>
-                 
+                <strong class="amount"><?php echo $total_incomecategory[0]; ?></strong><br>
               </div>
             </div>
+           
+            <div class="summary-footer">
+              <a class="text-muted text-uppercase"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="col-sm-auto">
+    <section class="panel panel-featured-left panel-featured-primary">
+      <div class="panel-body">
+        <div class="widget-summary">
+          <div class="widget-summary-col widget-summary-col-icon">
+            <div class="summary-icon bg-secondary">
+              <i class="fa fa-inbox"></i>
+            </div>
+          </div>
+          <div class="widget-summary-col">
+            <div class="summary">
+              <h4 class="title">Total Expense Category</h4>
+              <div class="info">
+                <strong class="amount"><?php echo $total_expensecategory[0]; ?></strong><br>
+              </div>
+            </div>
+           
             <div class="summary-footer">
               <a class="text-muted text-uppercase"></a>
             </div>
@@ -87,7 +116,6 @@ if(empty($id))
 </div>
 </div>
   </div>
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
+  
+  
   <?php include('include/footer.php'); ?>

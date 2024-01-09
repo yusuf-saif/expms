@@ -29,8 +29,8 @@
           <span>Manage Reports</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="add-category.php">View Income Category</a>
-          <a class="dropdown-item" href="view-category.php">View Expense Category</a>
+          <a class="dropdown-item" href="view-incomecategory.php">View Income Category</a>
+          <a class="dropdown-item" href="view-expensecategory.php">View Expense Category</a>
 
       </div>
       </li>
