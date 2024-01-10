@@ -62,7 +62,7 @@ if(isset($_REQUEST['sv-expcat']))
                                   <div class="form-group row">
                                       <label class="col-lg-4 col-form-label" for="remarks">Expense Category Name <span class="text-danger">*</span></label>
                                        <div class="col-lg-6">
-                                      <input type="text" name="expensecategory_name" id="expensecategory_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['category_name']; ?>" required>
+                                      <input type="text" name="expensecategory_name" id="expensecategory_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['expensecategory_name']; ?>" required>
                                        </div>
                                   </div>
                                   

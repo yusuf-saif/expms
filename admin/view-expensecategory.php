@@ -22,6 +22,9 @@ if(empty($id))
           <li class="breadcrumb-item">
             <a href="#">View Category</a>
           </li>
+          <li class="breadcrumb-item">
+            <a href="add-expensecategory.php">Add New Expense Category</a>
+          </li>
           
         </ol>
 

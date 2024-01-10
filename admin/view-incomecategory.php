@@ -22,6 +22,9 @@ if(empty($id))
           <li class="breadcrumb-item">
             <a href="#">View Income Category</a>
           </li>
+          <li class="breadcrumb-item">
+            <a href="add-incomecategory.php">Add New Income Category</a>
+          </li>
           
         </ol>
 

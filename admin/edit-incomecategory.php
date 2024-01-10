@@ -61,7 +61,7 @@ if(isset($_REQUEST['sv-inccat']))
                                   <div class="form-group row">
                                       <label class="col-lg-4 col-form-label" for="remarks">Income Category Name <span class="text-danger">*</span></label>
                                        <div class="col-lg-6">
-                                      <input type="text" name="incomecategory_name" id="incomecategory_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['category_name']; ?>" required>
+                                      <input type="text" name="incomecategory_name" id="incomecategory_name" class="form-control" placeholder="Enter Category Name" value="<?php echo $row['incomecategory_name']; ?>" required>
                                        </div>
                                   </div>
                                   
