@@ -3,12 +3,16 @@ session_start();
 include('connection.php');
 if(isset($_REQUEST['login_btn']))
 {
-    $uname = $_POST['email'];
-    $upwd = md5($_POST['pwd']);
-    
-    
-    $select_query = mysqli_query($conn, "select user_name, id from tbl_users where emailid='$uname' and password='$upwd' and role=2 and status=1");
+    // $uname = $_POST['email'];
+    // $upwd = md5($_POST['pwd']);
+
+    $uname = mysqli_real_escape_string($conn, $_REQUEST['email']);
+    $upwd = mysqli_real_escape_string($conn, $_REQUEST['pwd']);
+
+    $select_query = mysqli_query($conn, "SELECT user_name, id FROM
+     tbl_users WHERE emailid='$uname' AND password='$upwd' AND role=2 AND status=1");
     $username = mysqli_fetch_row($select_query);
+    
     if(!empty($username))
     {
     $_SESSION['user_name'] =  $username[0]; 
@@ -22,9 +26,14 @@ if(isset($_REQUEST['login_btn']))
        header("Location: dashboard.php"); 
     }
     else
+    //   $error="<div class='alert alert-danger alert-dismissable'>
+    //                       <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+    //                        Incorrect Login parameters
+    //             </div>";
+    // }
     { ?>
     <script>
-            alert("You have entered wrong emailid or password.");
+            alert("Incorrect Login parameters.");
         </script>
     
     <?php
@@ -58,24 +67,24 @@ if(isset($_REQUEST['login_btn']))
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-info">
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">
-       <h2><center style="color:coral;">User Login</center></h2>
+       <h2><center style="color:blue;">User Login</center></h2>
       </div>
       <div class="card-body">
         <form name="login"  method="post" action="">
           <div class="form-group">
             <div class="form-label-group">
-              <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required="required" autofocus="autofocus">
-              <label for="inputEmail">Email address</label>
+              <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email address" required="required" autofocus="autofocus" autocomplete="off">
+              <label for="inputEmail">Enter Your Email Id</label>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
-              <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pwd" required="required">
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pwd" required="required" autocomplete="off">
               <label for="inputPassword">Password</label>
             </div>
           </div>

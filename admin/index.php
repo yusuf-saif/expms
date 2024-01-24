@@ -20,7 +20,7 @@ if(isset($_REQUEST['login_btn']))
     else
     { ?>
     <script>
-            alert("You have entered wrong emailid or password.");
+            alert("You have entered wrong Email or Password.");
         </script>
     
     <?php
@@ -51,12 +51,12 @@ if(isset($_REQUEST['login_btn']))
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 </head>
 
-<body class="bg-dark">
+<body class="bg-info">
 
   <div class="container">
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">
-       <h2><center style="color:green;">Admin Login</center></h2>
+       <h2><center style="color:info;">Admin Login</center></h2>
       </div>
       <div class="card-body">
         <form name="login"  method="post" action="">
