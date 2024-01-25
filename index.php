@@ -3,11 +3,11 @@ session_start();
 include('connection.php');
 if(isset($_REQUEST['login_btn']))
 {
-    // $uname = $_POST['email'];
-    // $upwd = md5($_POST['pwd']);
+    $uname = $_POST['email'];
+    $upwd = md5($_POST['pwd']);
 
-    $uname = mysqli_real_escape_string($conn, $_REQUEST['email']);
-    $upwd = mysqli_real_escape_string($conn, $_REQUEST['pwd']);
+    // $uname = mysqli_real_escape_string($conn, $_REQUEST['email']);
+    // $upwd = mysqli_real_escape_string($conn, $_REQUEST['pwd']);
 
     $select_query = mysqli_query($conn, "SELECT user_name, id FROM
      tbl_users WHERE emailid='$uname' AND password='$upwd' AND role=2 AND status=1");
