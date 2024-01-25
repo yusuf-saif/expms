@@ -62,18 +62,29 @@
           <span>Logout</span>
         </a>
       </li>
-      <div class="legal">
-                <div class="copyright">
-                    &copy; <?php $year = date("Y"); echo $year; ?> <a href="javascript:void(0);">S.E.M.S</a>
-                </div>
-                <div class="version">
+      <li class="nav-item active">
+        <a class="nav-link" href="javascript:void(0);">
+          <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
+          <span>&copy; <?php $year = date("Y"); echo $year; ?> </span>
+          <!-- <a href="javascript:void(0);">S.E.M.S</a> -->
+        </a>
+      </li>
+      <!-- <li class="nav-item active">
+        <span>Version: 1.0</span>
+        <a href="javascript:void(0);" class="nav-list">Version: 1.0</a>
+      </li> -->
+      <!-- <div class="legal">
+                <!-- <div class="copyright">
+                    &copy; <?php //$year = date("Y"); echo $year; ?> <a href="javascript:void(0);">S.E.M.S</a>
+                </div> -->
+                <!-- <div class="version">
                     <b>Version: </b> 1.0.0
                 </div>
-            </div>
+            </div> -->
             <!-- #Footer -->
-        </aside>
+        <!-- </aside> -->
         <!-- #END# Left Sidebar -->
-    </section>
+    <!-- </section> -->
     </ul>
     <!-- <li>
                         <a href="../logout.php">
