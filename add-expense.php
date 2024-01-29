@@ -24,7 +24,7 @@ if(isset($_REQUEST['sbt-exps-btn']))
        $expense_date = NULL;
     }    
     
-    $insert_expense = mysqli_query($conn,"insert into tbl_expenses set user_id='$id', category='$category_name', expense_date='$expense_date', item_name='$item_name', item_price='$item_price', remark='$remark'");
+    $insert_expense = mysqli_query($conn,"INSERT INTO tbl_expenses SET user_id='$id', category='$category_name', expense_date='$expense_date', item_name='$item_name', item_price='$item_price', remark='$remark'");
 
     if($insert_expense > 0)
     {
@@ -67,10 +67,10 @@ if(isset($_REQUEST['sbt-exps-btn']))
                                     <select class="form-control" id="category_name" name="category_name" required>
                                         <option value="">Select Category</option>
                                         <?php 
-                                         $fetch_category = mysqli_query($conn, "select * from tbl_category where status=1");
+                                         $fetch_category = mysqli_query($conn, "SELECT * FROM tbl_expensecategory WHERE STATUS=1");
                                          while($row = mysqli_fetch_array($fetch_category)){
                                         ?>
-                                        <option><?php echo $row['category_name']; ?></option>
+                                        <option><?php echo $row['expensecategory_name']; ?></option>
                                     <?php } ?>
                                      </select>
                                 </div>
@@ -80,7 +80,7 @@ if(isset($_REQUEST['sbt-exps-btn']))
                                             <label class="col-lg-4 col-form-label" for="leave-date">Date <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="expense_date" name="expense_date" placeholder="Select Expense Date" required>
+                                                <input type="date" class="form-control" id="expense_date" name="expense_date" placeholder="Select Expense Date" required>
                                             </div>
                                         </div>
                                        <div class="form-group row">
