@@ -46,7 +46,6 @@ $year_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_
 $year_expense = mysqli_fetch_assoc($year_expense);
 
 
-
 include('include/header.php'); ?>
 
 <div id="wrapper">
@@ -79,11 +78,9 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">Total Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $total_expense[0]; ?></strong><br>
-
+                      <strong class="amount"><?php echo $total_income[0]; ?></strong><br>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -125,11 +122,9 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">Today's Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $today_expense['expense']; ?></strong><br>
-
+                      <strong class="amount"><?php echo $today_income['income']; ?></strong><br>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -150,10 +145,8 @@ include('include/header.php'); ?>
                     <h4 class="title">Today's Expense</h4>
                     <div class="info">
                       <strong class="amount"><?php echo $today_expense['expense']; ?></strong><br>
-
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -173,11 +166,9 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">Yesterday's Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $yesterday_expense['expense']; ?></strong><br>
-
+                      <strong class="amount"><?php echo $yesterday_income['income']; ?></strong><br>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -221,7 +212,7 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">This Week Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $week_expense['expense']; ?></strong><br>
+                      <strong class="amount"><?php echo $week_income['income']; ?></strong><br>
 
                     </div>
                   </div>
@@ -269,7 +260,7 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">This Month Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $month_expense['expense']; ?></strong><br>
+                      <strong class="amount"><?php echo $month_income['income']; ?></strong><br>
 
                     </div>
                   </div>
@@ -293,7 +284,7 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">This Month Expense</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $month_expense['expense']; ?></strong><br>
+                      <strong class="amount"><?php echo $month_income['income']; ?></strong><br>
 
                     </div>
                   </div>
@@ -317,8 +308,8 @@ include('include/header.php'); ?>
                   <div class="summary">
                     <h4 class="title">This Year Income</h4>
                     <div class="info">
-                      <strong class="amount"><?php echo $year_expense['expense']; ?></strong><br>
-                      </div>
+                      <strong class="amount"><?php echo $year_income['income']; ?></strong><br>
+                    </div>
                   </div>
 
                 </div>
@@ -327,35 +318,35 @@ include('include/header.php'); ?>
           </section>
         </div>
 
-            <div class="col-sm-4">
-              <section class="panel panel-featured-left panel-featured-primary">
-                <div class="panel-body">
-                  <div class="widget-summary">
-                    <div class="widget-summary-col widget-summary-col-icon">
-                      <div class="summary-icon bg-secondary">
-                        <i class="fa fa-dollar"></i>
-                      </div>
-                    </div>
-                    <div class="widget-summary-col">
-                      <div class="summary">
-                        <h4 class="title">This Year Expense</h4>
-                        <div class="info">
-                          <strong class="amount"><?php echo $year_expense['expense']; ?></strong><br>
-
-                        </div>
-                      </div>
+        <div class="col-sm-4">
+          <section class="panel panel-featured-left panel-featured-primary">
+            <div class="panel-body">
+              <div class="widget-summary">
+                <div class="widget-summary-col widget-summary-col-icon">
+                  <div class="summary-icon bg-secondary">
+                    <i class="fa fa-dollar"></i>
+                  </div>
+                </div>
+                <div class="widget-summary-col">
+                  <div class="summary">
+                    <h4 class="title">This Year Expense</h4>
+                    <div class="info">
+                      <strong class="amount"><?php echo $year_expense['expense']; ?></strong><br>
 
                     </div>
                   </div>
-                </div>
 
-              </section>
+                </div>
+              </div>
             </div>
+
+          </section>
         </div>
       </div>
     </div>
   </div>
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-  <?php include('include/footer.php'); ?>
+</div>
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+<?php include('include/footer.php'); ?>
