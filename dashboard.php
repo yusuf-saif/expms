@@ -22,21 +22,29 @@ $today_expense = mysqli_fetch_assoc($today_expense);
 $yesterday_income = mysqli_query($conn, "SELECT SUM(item_price) AS income FROM tbl_income WHERE user_id='$id' AND income_date=CURDATE()-1");
 $yesterday_income = mysqli_fetch_assoc($yesterday_income);
 
-$yesterday_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expense WHERE user_id='$id' AND expense_date=CURDATE()-1");
+$yesterday_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expenses WHERE user_id='$id' AND expense_date=CURDATE()-1");
 $yesterday_expense = mysqli_fetch_assoc($yesterday_expense);
 
 $week_income = mysqli_query($conn, "SELECT SUM(item_price) AS income FROM tbl_income WHERE WEEK(income_date)=WEEK(NOW()) AND user_id='$id'");
 $week_income = mysqli_fetch_assoc($week_income);
 
-$week_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expense WHERE WEEK(expesne_date) =WEEK(NOW())  AND user_id= '$id'");
+$week_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expenses WHERE WEEK(expense_date) =WEEK(NOW())  AND user_id= '$id'");
 $week_expense = mysqli_fetch_assoc($week_expense);
 
-$month_expense = mysqli_query($conn, "select sum(item_price) as expense from tbl_expenses where MONTH(expense_date) = MONTH(CURRENT_DATE())
-AND YEAR(expense_date) = YEAR(CURRENT_DATE()) and user_id='$id'");
+$month_income = mysqli_query($conn, "SELECT SUM(item_price) AS income FROM tbl_income WHERE MONTH(income_date) = MONTH(CURRENT_DATE())
+AND YEAR(income_date) = YEAR(CURRENT_DATE()) AND user_id='$id'");
+$month_income = mysqli_fetch_assoc($month_income);
+
+$month_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expenses WHERE MONTH(expense_date) = MONTH(CURRENT_DATE())
+AND YEAR(expense_date) = YEAR(CURRENT_DATE()) AND user_id= '$id'");
 $month_expense = mysqli_fetch_assoc($month_expense);
 
-$year_expense = mysqli_query($conn, "select sum(item_price) as expense from tbl_expenses where year(expense_date) = YEAR(CURDATE()) and user_id='$id'");
+$year_income = mysqli_query($conn, "SELECT SUM(item_price) AS income FROM tbl_income WHERE YEAR(income_date) = YEAR(CURDATE()) AND user_id='$id'");
+$year_income = mysqli_fetch_assoc($year_income);
+
+$year_expense = mysqli_query($conn, "SELECT SUM(item_price) AS expense FROM tbl_expenses WHERE YEAR(expense_date) = YEAR(CURDATE()) AND user_id= '$id'");
 $year_expense = mysqli_fetch_assoc($year_expense);
+
 
 
 include('include/header.php'); ?>
